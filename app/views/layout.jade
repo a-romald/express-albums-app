@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="utf-8")
+    script(type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
+    link(type="text/css"
+        rel="stylesheet"
+        href="/stylesheets/reset.css"
+        media="all")
+    link(type="text/css"
+        rel="stylesheet"
+        href="/stylesheets/style.css"
+        media="all")
+  body
+    #container.container
+        h1.header Express App
+        h1.header Photos Dashboard
+        nav.nav
+            a.home(href='/') Home
+            a.home(href='/albums') Albums
+            a.home(href='/images') Images
+        .wrapper
+            -if(messages)
+                div#note #{messages}
+            block content
+    
+    script(type="text/javascript"
+        src="/javascripts/del.js")

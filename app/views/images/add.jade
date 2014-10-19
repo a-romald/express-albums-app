@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  center
+    h2 #{title}
+
+  if errors
+    for error in errors
+        p.error #{error}
+
+  form.album_form(method="POST"
+    action=""
+    enctype="multipart/form-data")
+
+    label(for="title") Title:
+    input(type="text"
+         name="title"
+         value=""
+         required)
+    
+    br
+
+    label(for="album_id") Album:
+    select(name='album_id')
+      option(value='0' selected=selected) Select Album
+      each album in albums
+        option(value=album.id) #{album.title}
+
+    br
+    br
+
+    label(for="image") Image:
+    input(type="file"
+    name="image")
+
+    br
+    br
+
+    input(type="submit"
+         name="add"
+         value="Add image")

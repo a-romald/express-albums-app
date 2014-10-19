@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  center
+    h2 #{title}
+  
+  p.list
+    a(href='/albums/add') Add New Album
+    a(href='/albums/add')
+        img(src='/images/add.png' height='20')
+  
+  br
+  
+  div(style="float:left; width: 250px;")
+  if albums.length
+  for album in albums
+    p.list
+        a(href='/albums/show/#{album.id}') #{album.title}
+        a(href='/albums/edit/#{album.id}')
+            img(src='/images/edit.png' height='20') 
+        a(href='/albums/del/#{album.id}' onclick='return confirm_del_alb()')
+            img(src='/images/delete.png' height='20')  
+  

@@ -1,0 +1,11 @@
+tr
+  td #{image.id}
+  td #{image.title}
+  td
+    a(href='/albums/show/#{image.album_id}') #{image.album_title}
+  td 
+    img(src='#{image.thumb}' height=50)
+  td
+    a(href='/images/edit/#{image.id}') Edit
+  td
+    a(href='/images/del/#{image.id}' onclick='return confirm_del_img()') Delete

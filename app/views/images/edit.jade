@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  center
+    h2 #{title}
+
+  if errors
+    for error in errors
+        p.error #{error}
+
+  img.edit-image(src='#{image[0].thumb}' height=80)
+
+  br
+
+  form.album_form(method="POST"
+    action="")
+
+    label(for="title") Title:
+    input(type="text"
+         name="title"
+         value="#{image[0].title}"
+         required)
+    
+    br
+
+    label(for="album_id") Album:
+    select(name='album_id')
+      each album in albums
+        option(value='#{album.id}', selected=album.id == image[0].album_id) #{album.title}
+
+    br
+    br
+
+    input(type="hidden"
+             name="id"
+             value="#{image[0].id}")
+
+    input(type="submit"
+      name="edit"
+      value="Edit image")

@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  center
+    h2 #{title}
+
+  div.left_side
+    h3 Title:
+    h3.show #{album[0].title}
+    br
+
+    h3 Description:
+    h3.show #{album[0].description}
+    br
+
+    h3 Created:
+    h3.show #{album[0].date}
+
+  
+  div.right_side
+    if images.length
+    for image in images
+      a.show_album(href='/images/show/#{image.id}') #{image.album_title}
+        img(src='#{image.thumb}' height=120)

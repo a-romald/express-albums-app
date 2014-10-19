@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  center
+    h2 #{title}
+  
+  p.list
+    a(href='/images/add') Add New Image
+    a(href='/images/add')
+        img(src='/images/add.png' height='20')
+  
+  br
+  
+  table.striped(border="0" cellspacing="0" cellpadding="0")
+    caption 
+      h3 Images
+      if images.length
+        thead
+          tr
+            th ID
+            th Title
+            th Album
+            th Image
+            th
+            th
+        tbody
+           each image in images
+              if image
+                include row
+
+  div !{paginator}
+  //- is extrapolated  perfectly
+
+  br
+  script(type="text/javascript" src='/javascripts/table.js')
+  
