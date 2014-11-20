@@ -2,6 +2,8 @@ A lightweight Express.js Applications that allows to create albums and upload
 photos into them. Application implement main CRUD functions both for albums
 and images. Application uses MySQL database to store paths for photos.
 The sql-file appended. Pagination module requires compilation on server side.
+Application also uses ImageMagick to generate thumbnails with gm module. So You
+should install it into your system.
 
 Requires Node.js installed.
 
